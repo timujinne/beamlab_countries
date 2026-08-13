@@ -4,6 +4,9 @@ defmodule BeamLabCountries.TranslationsTest do
 
   alias BeamLabCountries.Translations
 
+  # A blank or missing name doesn't count as a translation.
+  defp translated?(name), do: is_binary(name) and String.trim(name) != ""
+
   describe "get_name/2" do
     test "returns translated country name" do
       assert Translations.get_name("DE", "fr") == "Allemagne"
@@ -24,8 +27,8 @@ defmodule BeamLabCountries.TranslationsTest do
       untranslated =
         BeamLabCountries.all()
         |> Enum.map(& &1.alpha2)
-        |> Enum.filter(&Translations.get_name(&1, "en"))
-        |> Enum.reject(&Translations.get_name(&1, "et"))
+        |> Enum.filter(&translated?(Translations.get_name(&1, "en")))
+        |> Enum.reject(&translated?(Translations.get_name(&1, "et")))
 
       assert untranslated == []
     end
