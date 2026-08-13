@@ -2,7 +2,7 @@ defmodule BeamLabCountries.Translations do
   @moduledoc """
   Module for looking up country names in different languages.
 
-  Supports 15 languages: ar, de, en, es, fr, it, ja, ko, nl, pl, pt, ru, sv, uk, zh
+  Supports 16 languages: ar, de, en, es, et, fr, it, ja, ko, nl, pl, pt, ru, sv, uk, zh
 
   ## Examples
 
@@ -18,7 +18,7 @@ defmodule BeamLabCountries.Translations do
   """
 
   @locales_path Path.join([:code.priv_dir(:beamlab_countries), "data", "locales"])
-  @supported_locales ~w(ar de en es fr it ja ko nl pl pt ru sv uk zh)
+  @supported_locales ~w(ar de en es et fr it ja ko nl pl pt ru sv uk zh)
 
   # Load all locale files at compile time
   @translations @supported_locales

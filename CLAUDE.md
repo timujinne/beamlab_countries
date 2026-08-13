@@ -63,4 +63,4 @@ BeamLabCountries is a compile-time data library providing ISO 3166 country infor
 - `priv/data/unions/{CODE}.yaml` - Union/organization data files (13 unions: eu, nato, g7, g20, etc.)
 - `priv/data/languages.json` - Language codes and names (184 languages)
 - `priv/data/locales.json` - Regional locale data (85 locales: en-US, es-ES, pt-BR, etc.)
-- `priv/data/locales/{LOCALE}.json` - Country name translations (15 locales: ar, de, en, es, fr, it, ja, ko, nl, pl, pt, ru, sv, uk, zh)
+- `priv/data/locales/{LOCALE}.json` - Country name translations (16 locales: ar, de, en, es, et, fr, it, ja, ko, nl, pl, pt, ru, sv, uk, zh)
