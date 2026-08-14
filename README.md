@@ -262,7 +262,7 @@ Translations.get_all_names("IT")
 
 # Check supported locales
 Translations.supported_locales()
-# ["ar", "de", "en", "es", "fr", "it", "ja", "ko", "nl", "pl", "pt", "ru", "sv", "uk", "zh"]
+# ["ar", "de", "en", "es", "et", "fr", "it", "ja", "ko", "nl", "pl", "pt", "ru", "sv", "uk", "zh"]
 
 Translations.locale_supported?("ja")
 # true
