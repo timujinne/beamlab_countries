@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.2.0 - 2026-08-14
+
+### Added
+- Estonian (`et`) country name translations — 16th locale for `Translations.get_name/2` and `get_all_names/1`, sourced from [CLDR](https://github.com/unicode-org/cldr-json) (`et/territories`)
+- `AN` (Netherlands Antilles) translations for `de`, `en`, `es`, `et`, `fr`, `ja`, `nl`, and `ru`. CLDR dropped the retired code, so these are taken from `priv/data/countries/AN.yaml` (and Wikipedia titles for `et` / `ru`)
+
+### Changed
+- `Translations.supported_locales/0` now returns 16 locales (`et` inserted in sort order)
+
 ## 1.1.0 - 2026-07-17
 
 ### Fixed

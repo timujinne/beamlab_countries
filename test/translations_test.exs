@@ -22,8 +22,8 @@ defmodule BeamLabCountries.TranslationsTest do
       assert Translations.get_name("FI", "et") == "Soome"
       assert Translations.get_name("GB", "et") == "Ühendkuningriik"
 
-      # Same coverage as English — the locale files skip a few historical
-      # codes (e.g. AN), and Estonian is not expected to be broader.
+      # Held to the same bar as English: every country with an English
+      # name must also have an Estonian one.
       untranslated =
         BeamLabCountries.all()
         |> Enum.map(& &1.alpha2)
@@ -31,6 +31,17 @@ defmodule BeamLabCountries.TranslationsTest do
         |> Enum.reject(&translated?(Translations.get_name(&1, "et")))
 
       assert untranslated == []
+    end
+
+    test "translates Netherlands Antilles where names are known" do
+      assert Translations.get_name("AN", "en") == "Netherlands Antilles"
+      assert Translations.get_name("AN", "de") == "Niederländische Antillen"
+      assert Translations.get_name("AN", "es") == "Antillas Holandesas"
+      assert Translations.get_name("AN", "et") == "Hollandi Antillid"
+      assert Translations.get_name("AN", "fr") == "Antilles néerlandaises"
+      assert Translations.get_name("AN", "ja") == "オランダ領アンティル"
+      assert Translations.get_name("AN", "nl") == "Nederlandse Antillen"
+      assert Translations.get_name("AN", "ru") == "Нидерландские Антильские острова"
     end
 
     test "returns nil for unknown country or locale" do
@@ -52,8 +63,10 @@ defmodule BeamLabCountries.TranslationsTest do
   end
 
   describe "supported_locales/0 and locale_supported?/1" do
-    test "lists 16 locales" do
-      assert length(Translations.supported_locales()) == 16
+    test "lists 16 locales including Estonian" do
+      locales = Translations.supported_locales()
+      assert length(locales) == 16
+      assert "et" in locales
     end
 
     test "locale_supported?/1 is case insensitive" do

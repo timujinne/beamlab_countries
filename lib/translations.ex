@@ -15,6 +15,9 @@ defmodule BeamLabCountries.Translations do
       iex> BeamLabCountries.Translations.get_name("DE", "pl")
       "Niemcy"
 
+      iex> BeamLabCountries.Translations.get_name("EE", "et")
+      "Eesti"
+
   """
 
   @locales_path Path.join([:code.priv_dir(:beamlab_countries), "data", "locales"])
